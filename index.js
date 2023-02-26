@@ -18,15 +18,19 @@ const questions = [
 ];
 
 // function to write README file
-function writeToFile(fileName, data) {
+function writeToFile(filename, data) {
+    fs.writeFile(`'${filename}.md'`, JSON.stringify(data), (err) => err && console.error(err))
 }
 
 // function to initialize program
 function init() {
     inquirer.prompt(questions)
         .then((response) => {
-            console.log(response);
+            console.log(response.title);
+            writeToFile('sample', response);
         })
+        
+        
 }
 
 // function call to initialize program
