@@ -65,7 +65,7 @@ function init() {
     inquirer.prompt(questions)
         .then((response) => {
             console.log(response.title);
-            writeToFile('sample', response);
+            writeToFile(`${response.title}`, response);
         })
         
         
