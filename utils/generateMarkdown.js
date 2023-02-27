@@ -15,12 +15,22 @@ function generateMarkdown(data) {
 - [Questions](#questions)
 - [License](#license)
 `
-const licenseBadage ='';
-
+let licenseBadage ='';
+if(license === 'Boost Software License 1.0') {
+  licenseBadage = '[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)';
+} else if (license === 'Apache 2.0 License') {
+  licenseBadage = '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)';
+} else if (license === 'BSD 3-Clause License') {
+  licenseBadage = '[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)';
+} else {
+  licenseBadage = '';
+}
 
 
   return `
 # ${title.trim()}
+
+${licenseBadage}
 
 ${contentTable}
 
