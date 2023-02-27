@@ -6,12 +6,22 @@ function generateMarkdown(data) {
   // create content table and link to specific sections
   const contentTable = `
 ## Table of Contents
-- [Description] (#desc)
+- [Description](#desc)
+- [Usage Tips](#usage)
 
 `
 
   return `
 # ${title}
+
+${contentTable}
+
+<a name='desc'></a>
+## Description
+
+${description}
+
+
 `;
 }
 
