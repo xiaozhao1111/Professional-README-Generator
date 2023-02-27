@@ -12,10 +12,10 @@ const questions = [
         message: 'What\'s the tile of your project?',
         name:'title',
         validate: function(title) {
-        if(title!='') {
+        if(title.trim()!='') {
             return true;
             } else {
-            return 'Please give a valid title!'
+            return 'Please give a valid title.'
             }
         }
     },
@@ -24,7 +24,7 @@ const questions = [
         message: 'Please give a short description of you project: ',
         name: 'description',
         validate: function(description) {
-            if(description!='') {
+            if(description.trim()!='') {
                 return true;
             } else {
                 return 'Sorry, the description cannot be empty.'
@@ -36,7 +36,7 @@ const questions = [
         message: 'How to install the application?',
         name: 'installation',
         validate: function(installation) {
-            if(installation!='') {
+            if(installation.trim()!='') {
                 return true;
             } else {
                 return 'Please describe how to install the application.'
@@ -46,18 +46,44 @@ const questions = [
     {
         type: 'input',
         message: 'How to use the application?',
-        name: 'usage'
+        name: 'usage',
+        validate: function(usage) {
+            if(usage.trim()!='') {
+                return true;
+            } else {
+                return 'Please give the usage tips of this application.'
+            }
+        }
     },
     {
         type: 'list',
         message: 'Please select the license: ',
-        choices: ['MIT License', 'Apache 2.0 License', 'The Unlicense', 'No license'],
+        choices: ['Boost Software License 1.0', 'Apache 2.0 License', 'BSD 3-Clause License', 'No license'],
         name: 'license'
     },
     {
         type: 'input',
+        message: 'Please indicate how to test the application.',
+        name:'tests',
+        validate: function(tests) {
+            if(tests.trim()!='') {
+                return true;
+            } else {
+                return 'Please give more details for the testing of the application.'
+            }
+        }
+    },
+    {
+        type: 'input',
         message: 'What\'s the contributing guidelines for this project?',
-        name: 'contributing'
+        name: 'contributing',
+        validate: function(contributing) {
+            if(contributing.trim()!='') {
+                return true;
+            } else {
+                return 'Please give the guidelines to contribute to this application.'
+            }
+        }
     },
     {
         type: 'input',
@@ -73,6 +99,14 @@ const questions = [
         type: 'input',
         message: 'Please enter your Github username: ',
         name: 'githubUserName',
+        validate: function(githubUserName) {
+            if(githubUserName!='') {
+                return true;
+            } else {
+                return 'Please input your github user name.'
+            }
+        }
+
     }
 ];
 

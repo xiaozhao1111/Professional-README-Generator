@@ -1,7 +1,7 @@
 // function to generate markdown for README
 function generateMarkdown(data) {
   // Destructing the data object
-  const {title, description, installation, usage, license, contributing, email, githubUserName} = data;
+  const {title, description, installation, usage, tests,license, contributing, email, githubUserName} = data;
 
   const githubURL = 'https://github.com/' + githubUserName;
   // create content table and link to specific sections
@@ -15,34 +15,39 @@ function generateMarkdown(data) {
 - [Questions](#questions)
 - [License](#license)
 `
+const licenseBadage ='';
+
+
 
   return `
-# ${title}
+# ${title.trim()}
 
 ${contentTable}
 
 <a name='desc'></a>
 ## Description
 
-${description}
+${description.trim()}
 
 <a name='install'></a>
 ## Installation
 
-${installation}
+${installation.trim()}
 
 <a name='usage'></a>
 ## Usage Tips
 
-${usage}
+${usage.trim()}
 
 <a name='tests'></a>
 ## Tests
 
+${tests.trim()}
+
 <a name='contributing'></a>
 ## Contributing
 
-${contributing}
+${contributing.trim()}
 
 <a name='questions'></a>
 ## Questions
