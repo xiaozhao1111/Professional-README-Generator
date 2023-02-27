@@ -65,6 +65,10 @@ ${contributing.trim()}
 * If you have any doubts, feel free to contact me via ${email}
 * Find more about my works on [my Github](${githubURL})
 
+<a name='license'></a>
+## License
+This application is covered under ${license}.
+
 `;
 }
 
