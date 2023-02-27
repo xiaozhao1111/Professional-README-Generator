@@ -112,7 +112,7 @@ const questions = [
 
 // function to write README file
 function writeToFile(filename, data) {
-    fs.writeFile(`sample-README.md`, data, (err) => {
+    fs.writeFile(`sampleReadMe-${filename}.md`, data, (err) => {
         err ? console.error(err) : console.log('A new README file was saved!');
     })
 }
@@ -122,7 +122,7 @@ function init() {
     inquirer.prompt(questions)
         .then((response) => {
             const readMeFile = generateMarkdown(response);
-            writeToFile(`${response.title}`, readMeFile);
+            writeToFile(`${response.title.trim()}`, readMeFile);
         })
         
         
