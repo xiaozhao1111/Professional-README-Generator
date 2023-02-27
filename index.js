@@ -2,23 +2,46 @@ const fs = require("fs");
 const path = require('path');
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
+const { title } = require("process");
+
 
 // array of questions for user
 const questions = [
     {
         type: 'input',
         message: 'What\'s the tile of your project?',
-        name:'title'
+        name:'title',
+        validate: function(title) {
+        if(title!='') {
+            return true;
+            } else {
+            return 'Please give a valid title!'
+            }
+        }
     },
     {
         type: 'input',
         message: 'Please give a short description of you project: ',
-        name: 'description'
+        name: 'description',
+        validate: function(description) {
+            if(description!='') {
+                return true;
+            } else {
+                return 'Sorry, the description cannot be empty.'
+            }
+        }
     },
     {
         type: 'input',
         message: 'How to install the application?',
-        name: 'installation'
+        name: 'installation',
+        validate: function(installation) {
+            if(installation!='') {
+                return true;
+            } else {
+                return 'Please describe how to install the application.'
+            }
+        }
     },
     {
         type: 'input',
